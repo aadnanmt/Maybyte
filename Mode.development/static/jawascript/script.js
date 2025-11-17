@@ -1,4 +1,5 @@
-// Maaf bang terkadang developer-nya absurd dan juga sedikit aneh
+
+// Maaf bang terkadang developer-nya absurd dan juga sedikit anh
 
 const API_URL = '/mwehehe';
 
