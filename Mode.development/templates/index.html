@@ -1,0 +1,91 @@
+<!-- Maybyte. | Created by Adnan. Under MIT License -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MayByte. | Real-Time Monitor</title>
+
+  <!-- seo -->
+  <meta name="description" content="Monitored - Real-time system monitoring dashboard dengan efek Matrix." />
+  <meta name="theme-color" content="#00ff7f" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+ 
+  <!-- link script css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+  <!-- untuk chart pakai Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- matrix Background (hanya desktop) -->
+  <!-- lagi pula matrixCanvas-nya udah gua matiin, silakan kalau mau kamu nyalain -->
+
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- container -->
+  <div class="container">
+    <header>
+      <h1>MayByte.</h1>
+        <p><span>FYI!!</span> Ini mengambil data dari server <span>pythonanywhere.com</span>. Data akan diperbarui secara real-time setiap <span>7 detik</span>, ya.</p>
+    </header>
+
+    <main class="dashboard-grid">
+      <!-- cpu -->
+      <div class="card" data-type="cpu">
+        <h2>CPU Usage</h2>
+        <div class="chart-container">
+          <canvas id="cpuChart"></canvas>
+          <div class="chart-text" id="cpu-percent-text">0%</div>
+        </div>
+        <div class="usage-details" id="cpu-cores-text">0 Core</div>
+        <div class="usage-details" id="cpu-threads-text">0 Thread</div>
+        <div class="usage-details" id="cpu-speed-text">0 GHz</div>
+      </div>
+
+      <!-- rram -->
+      <div class="card" data-type="ram">
+        <h2>RAM Usage</h2>
+        <div class="chart-container">
+          <canvas id="ramChart"></canvas>
+          <div class="chart-text" id="ram-percent-text">0%</div>
+        </div>
+        <div class="usage-details" id="ram-usage-text">0 GB / 0 GB</div>
+      </div>
+
+      <!-- disk -->
+      <div class="card" data-type="disk">
+        <h2>Disk Usage</h2>
+        <div class="chart-container">
+          <canvas id="diskChart"></canvas>
+          <div class="chart-text" id="disk-percent-text">0%</div>
+        </div>
+        <div class="usage-details" id="disk-usage-text">0 GB / 0 GB</div>
+      </div>
+    </main>
+
+    <!-- status teks | terhubung apa ngganya -->
+    <div class="status-text" id="status-text">
+      <h2><span>Menghubungkan...</span></h2>
+      Sedang mencoba terhubung ke server...
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <p id="CoffeText">
+        © <span id="current-year"></span> 
+        <a href="https://github.com/aadnanmt" target="_blank" rel="noopener" class="author-link">
+          <span>Adnan</span></a>. All Rights Reserved.
+      </p>
+    </footer>
+  </div>
+
+  <!-- link script untuk jawascript -->
+  <script src="{{ url_for('static', filename='jawascript/script.js') }}"></script>
+</body>
+</html>
